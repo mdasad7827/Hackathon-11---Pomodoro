@@ -76,7 +76,7 @@ const App = () => {
           seconds
         )}`}</h1>
         <h3 className="duration">
-          {durationTime === "Work" ? "work" : "break"}-Time
+          {durationTime === "Work" ? "work" : "break"}-time
         </h3>
       </div>
       <div className="controls">
