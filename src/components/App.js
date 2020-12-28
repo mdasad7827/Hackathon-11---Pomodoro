@@ -56,10 +56,6 @@ const App = () => {
       setMinutes(newMinutes);
       setSeconds(0);
       setBreakDuration(newBreakDuration);
-    } else if (newBreakDuration != 0) {
-      setMinutes(newMinutes);
-      setSeconds(0);
-      setBreakDuration(newBreakDuration);
     } else {
       setNewMinutes(25);
       setBreakDuration(5);
