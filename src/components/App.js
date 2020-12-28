@@ -8,7 +8,7 @@ const App = () => {
   const [seconds, setSeconds] = useState(0);
   const [newMinutes, setNewMinutes] = useState(minutes);
   const [newBreakDuration, setNewBreakDuration] = useState(breakDuration);
-  const [durationTime, setDurationTime] = useState("Work-Time");
+  const [durationTime, setDurationTime] = useState("Work");
   const [start, setStart] = useState(true);
   const [stop, setStop] = useState(false);
   const [reset, setReset] = useState(true);
@@ -22,14 +22,14 @@ const App = () => {
     if (!start) {
       const intervalId = setInterval(() => {
         if (Number(minutes) === 0 && Number(seconds) === 0) {
-          if (durationTime === "Work-Time") {
+          if (durationTime === "Work") {
             alert("work duration is over");
             setMinutes(breakDuration);
-            setDurationTime("Break-Time");
+            setDurationTime("Break");
           } else {
             alert("break duration is over");
             setMinutes(newMinutes);
-            setDurationTime("Work-Time");
+            setDurationTime("Work");
           }
         } else if (Number(seconds) === 0 && Number(minutes) > 0) {
           setMinutes(minutes - 1);
@@ -48,7 +48,7 @@ const App = () => {
     setMinutes(25);
     setSeconds(0);
     setNewBreakDuration(5);
-    setDurationTime("Work-Time");
+    setDurationTime("Work");
   }
 
   function setHandler() {
@@ -75,7 +75,7 @@ const App = () => {
         <h1 className="timer">{`${appendZero(minutes)}:${appendZero(
           seconds
         )}`}</h1>
-        <h3 className="duration">{`${durationTime}`}</h3>
+        <h3 className="duration">{`${durationTime}-Time`}</h3>
       </div>
       <div className="controls">
         <button
