@@ -48,14 +48,15 @@ const App = () => {
     setMinutes(25);
     setSeconds(0);
     setNewBreakDuration(5);
+    setDurationTime("Work-Time");
   }
 
   function setHandler() {
-    if (newMinutes !== 0 || newBreakDuration !== 0) {
+    if (newMinutes != 0 || newBreakDuration != 0) {
       setMinutes(newMinutes);
       setSeconds(0);
       setBreakDuration(newBreakDuration);
-    } else if (newBreakDuration !== 0) {
+    } else if (newBreakDuration != 0) {
       setMinutes(newMinutes);
       setSeconds(0);
       setBreakDuration(newBreakDuration);
