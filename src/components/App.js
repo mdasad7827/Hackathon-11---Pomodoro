@@ -75,7 +75,7 @@ const App = () => {
         <h1 className="timer">{`${appendZero(minutes)}:${appendZero(
           seconds
         )}`}</h1>
-        <h3 className="duration">{durationTime}</h3>
+        <h3 className="duration">{`${durationTime}`}</h3>
       </div>
       <div className="controls">
         <button
