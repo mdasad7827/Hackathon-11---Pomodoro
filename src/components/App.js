@@ -18,10 +18,36 @@ const App = () => {
     return num;
   };
 
+  // useEffect(() => {
+  //   if (!start) {
+  //     let intervalId = setInterval(() => {
+  //       if (Number(minutes) === 0 && Number(seconds) === 0) {
+  //         if (durationTime === "Work") {
+  //           setMinutes(breakDuration);
+  //           setDurationTime("Break");
+  //           alert("work duration is over");
+  //         } else {
+  //           setMinutes(newMinutes);
+  //           alert("break duration is over");
+  //           setDurationTime("Work");
+  //         }
+  //       } else if (Number(seconds) === 0 && Number(minutes) > 0) {
+  //         setMinutes(minutes - 1);
+  //         setSeconds(59);
+  //       } else if (Number(seconds) > 0) {
+  //         setSeconds(seconds - 1);
+  //       }
+  //     }, 1 * 1000);
+  //     return () => clearInterval(intervalId);
+  //   }
+  // });
+
   useEffect(() => {
     if (!start) {
-      const intervalId = setInterval(() => {
-        if (Number(minutes) === 0 && Number(seconds) === 0) {
+      let intervalId = setInterval(() => {
+        if (Number(seconds) > 0) {
+          setSeconds(seconds - 1);
+        } else if (Number(seconds) === 0 && Number(minutes) === 0) {
           if (durationTime === "Work") {
             setMinutes(breakDuration);
             setDurationTime("Break");
@@ -31,13 +57,11 @@ const App = () => {
             alert("break duration is over");
             setDurationTime("Work");
           }
-        } else if (Number(seconds) === 0 && Number(minutes) > 0) {
+        } else {
           setMinutes(minutes - 1);
           setSeconds(59);
-        } else if (Number(seconds) > 0) {
-          setSeconds(seconds - 1);
         }
-      }, 1 * 1000);
+      }, 1000);
       return () => clearInterval(intervalId);
     }
   });
