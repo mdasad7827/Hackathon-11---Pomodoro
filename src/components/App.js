@@ -4,7 +4,6 @@ import "../styles/App.css";
 const App = () => {
   const [minutes, setMinutes] = useState(25);
   const [breakDuration, setBreakDuration] = useState(5);
-
   const [seconds, setSeconds] = useState(0);
   const [newMinutes, setNewMinutes] = useState(minutes);
   const [newBreakDuration, setNewBreakDuration] = useState(breakDuration);
@@ -17,30 +16,6 @@ const App = () => {
     if (num < 10) return `0${num}`;
     return num;
   };
-
-  // useEffect(() => {
-  //   if (!start) {
-  //     let intervalId = setInterval(() => {
-  //       if (Number(minutes) === 0 && Number(seconds) === 0) {
-  //         if (durationTime === "Work") {
-  //           setMinutes(breakDuration);
-  //           setDurationTime("Break");
-  //           alert("work duration is over");
-  //         } else {
-  //           setMinutes(newMinutes);
-  //           alert("break duration is over");
-  //           setDurationTime("Work");
-  //         }
-  //       } else if (Number(seconds) === 0 && Number(minutes) > 0) {
-  //         setMinutes(minutes - 1);
-  //         setSeconds(59);
-  //       } else if (Number(seconds) > 0) {
-  //         setSeconds(seconds - 1);
-  //       }
-  //     }, 1 * 1000);
-  //     return () => clearInterval(intervalId);
-  //   }
-  // });
 
   useEffect(() => {
     if (!start) {
@@ -64,7 +39,7 @@ const App = () => {
       }, 1000);
       return () => clearInterval(intervalId);
     }
-  });
+  }, [start, stop, seconds, minutes, durationTime]);
 
   function resetHandler() {
     setNewMinutes(25);
@@ -142,7 +117,7 @@ const App = () => {
             data-testid="work-duration"
             placeholder="work-duration"
             required
-            type="number"
+            type="Number"
             min="0"
             onChange={(e) => setNewMinutes(e.target.value)}
             value={newMinutes}
@@ -152,7 +127,7 @@ const App = () => {
             data-testid="break-duration"
             placeholder="break-duration"
             required
-            type="number"
+            type="Number"
             min="0"
             onChange={(e) => setNewBreakDuration(e.target.value)}
             value={newBreakDuration}
