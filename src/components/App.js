@@ -71,11 +71,12 @@ const App = () => {
         <h1 className="timer">{`${appendZero(minutes)}:${appendZero(
           seconds
         )}`}</h1>
-        <h3 className="duration">{durationTime}-Time</h3>
+        <h3>{durationTime}-Time</h3>
       </div>
       <div className="controls">
         <button
           data-testid="start-btn"
+          key="start"
           onClick={() => {
             setStart(false);
             setStop(true);
@@ -87,6 +88,7 @@ const App = () => {
         </button>
         <button
           data-testid="stop-btn"
+          key="stop"
           onClick={() => {
             setStart(true);
             setStop(false);
@@ -98,6 +100,7 @@ const App = () => {
         </button>
         <button
           data-testid="reset-btn"
+          key="reset"
           onClick={() => {
             setStart(true);
             setReset(true);
@@ -133,6 +136,7 @@ const App = () => {
           />
           <button
             data-testid="set-btn"
+            key="set"
             type="button"
             onClick={setHandler}
             disabled={!start}
