@@ -22,7 +22,7 @@ const App = () => {
       let intervalId = setInterval(() => {
         if (Number(seconds) > 0) {
           setSeconds(seconds - 1);
-        } else if (Number(seconds) === 0 && Number(minutes) === 0) {
+        } else if (Number(minutes) === 0 && Number(seconds) <= 1) {
           if (durationTime === "Work") {
             alert("work duration is over");
             setMinutes(breakDuration);
@@ -56,6 +56,7 @@ const App = () => {
       setMinutes(newMinutes);
       setSeconds(0);
       setBreakDuration(newBreakDuration);
+      setDurationTime("Work");
     } else {
       resetHandler();
     }
