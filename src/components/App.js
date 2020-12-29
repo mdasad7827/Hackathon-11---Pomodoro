@@ -23,13 +23,13 @@ const App = () => {
       const intervalId = setInterval(() => {
         if (Number(minutes) === 0 && Number(seconds) === 0) {
           if (durationTime === "Work-Time") {
-            alert("Work duration is over");
             setMinutes(breakDuration);
             setDurationTime("Break-Time");
+            alert("work duration is over");
           } else {
-            alert("Break duration is over");
             setMinutes(newMinutes);
             setDurationTime("Work-Time");
+            alert("break duration is over");
           }
         } else if (Number(seconds) === 0 && Number(minutes) > 0) {
           setMinutes(minutes - 1);
@@ -57,11 +57,7 @@ const App = () => {
       setSeconds(0);
       setBreakDuration(newBreakDuration);
     } else {
-      setNewMinutes(25);
-      setBreakDuration(5);
-      setMinutes(25);
-      setSeconds(0);
-      setNewBreakDuration(5);
+      resetHandler();
     }
   }
 
