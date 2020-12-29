@@ -33,7 +33,7 @@ const App = () => {
             setSeconds(0);
             setDurationTime("Work");
           }
-        } else if (Number(seconds) > 1) {
+        } else if (Number(seconds) > 0) {
           setSeconds(seconds - 1);
         } else {
           setMinutes(minutes - 1);
