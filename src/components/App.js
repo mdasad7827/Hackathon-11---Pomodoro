@@ -143,7 +143,7 @@ const App = () => {
             type="button"
             onClick={() => {
               setReset(false);
-              setHandler;
+              setHandler();
             }}
             disabled={!start}
           >
