@@ -44,33 +44,6 @@ const App = () => {
     }
   });
 
-  // useEffect(() => {
-  //   if (!start) {
-  //     if (seconds > 0) {
-  //       const timer = setTimeout(() => {
-  //         setSeconds(seconds - 1);
-  //       }, 1000);
-  //       return () => clearTimeout(timer);
-  //     }
-  //     if (seconds === 0 && minutes === 0) {
-  //       if (durationTime === "Work") {
-  //         alert("work duration is over");
-  //         setMinutes(breakDuration);
-  //         // setSeconds(0);
-  //         setDurationTime("Break");
-  //       } else {
-  //         alert("break duration is over");
-  //         setMinutes(newMinutes);
-  //         // setSeconds(0);
-  //         setDurationTime("Work");
-  //       }
-  //     } else {
-  //       setMinutes(minutes - 1);
-  //       setSeconds(59);
-  //     }
-  //   }
-  // });
-
   function resetHandler() {
     setNewMinutes(25);
     setBreakDuration(5);
@@ -168,7 +141,10 @@ const App = () => {
             data-testid="set-btn"
             key="set"
             type="button"
-            onClick={setHandler}
+            onClick={() => {
+              setReset(false);
+              setHandler;
+            }}
             disabled={!start}
           >
             Set
