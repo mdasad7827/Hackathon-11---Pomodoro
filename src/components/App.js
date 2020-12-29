@@ -51,7 +51,8 @@ const App = () => {
           setSeconds(seconds - 1);
         }, 1000);
         return () => clearTimeout(timer);
-      } else if (seconds === 0 && minutes === 0) {
+      }
+      if (seconds === 0 && minutes === 0) {
         if (durationTime === "Work") {
           alert("work duration is over");
           setMinutes(breakDuration);
