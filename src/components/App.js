@@ -24,12 +24,13 @@ const App = () => {
           setSeconds(seconds - 1);
         } else if (Number(seconds) === 0 && Number(minutes) === 0) {
           if (durationTime === "Work") {
+            alert("work duration is over");
             setMinutes(breakDuration);
             setDurationTime("Break");
-            alert("work duration is over");
           } else {
-            setMinutes(newMinutes);
             alert("break duration is over");
+            setMinutes(newMinutes);
+
             setDurationTime("Work");
           }
         } else {
@@ -39,7 +40,7 @@ const App = () => {
       }, 1000);
       return () => clearInterval(intervalId);
     }
-  }, [start, stop, seconds, minutes, durationTime]);
+  });
 
   function resetHandler() {
     setNewMinutes(25);
