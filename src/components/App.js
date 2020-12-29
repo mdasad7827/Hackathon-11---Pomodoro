@@ -90,7 +90,7 @@ const App = () => {
   }
 
   return (
-    <div id="main" style={{ textAlign: "center" }}>
+    <div className="App" style={{ textAlign: "center" }}>
       <div className="clock">
         <h1 className="timer">{`${appendZero(minutes)}:${appendZero(
           seconds
