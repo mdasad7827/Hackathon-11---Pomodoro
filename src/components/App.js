@@ -20,17 +20,19 @@ const App = () => {
   useEffect(() => {
     if (!start) {
       let intervalId = setInterval(() => {
-        if (Number(seconds) > 0) {
+        if (Number(seconds) > 1) {
           setSeconds(seconds - 1);
         } else if (Number(minutes) === 0 && Number(seconds) <= 1) {
+          console.log(seconds);
           if (durationTime === "Work") {
             alert("work duration is over");
             setMinutes(breakDuration);
+            setSeconds(0);
             setDurationTime("Break");
           } else {
             alert("break duration is over");
             setMinutes(newMinutes);
-
+            setSeconds(0);
             setDurationTime("Work");
           }
         } else {
