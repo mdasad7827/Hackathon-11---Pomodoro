@@ -77,7 +77,7 @@ const App = () => {
         setSeconds(59);
       }
     }
-  });
+  }, [seconds, minutes, durationTime, start, stop]);
 
   function resetHandler() {
     setNewMinutes(25);
