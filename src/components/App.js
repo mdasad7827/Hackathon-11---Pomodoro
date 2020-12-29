@@ -17,30 +17,56 @@ const App = () => {
     return num;
   };
 
+  // useEffect(() => {
+  //   if (!start) {
+  //     let intervalId = setInterval(() => {
+  //       if (Number(seconds) > 1) {
+  //         setSeconds(seconds - 1);
+  //       } else if (Number(minutes) === 0 && Number(seconds) <= 1) {
+  //         console.log(seconds);
+  //         if (durationTime === "Work") {
+  //           alert("work duration is over");
+  //           setMinutes(breakDuration);
+  //           setSeconds(0);
+  //           setDurationTime("Break");
+  //         } else {
+  //           alert("break duration is over");
+  //           setMinutes(newMinutes);
+  //           setSeconds(0);
+  //           setDurationTime("Work");
+  //         }
+  //       } else {
+  //         setMinutes(minutes - 1);
+  //         setSeconds(59);
+  //       }
+  //     }, 1000);
+  //     return () => clearInterval(intervalId);
+  //   }
+  // });
+
   useEffect(() => {
     if (!start) {
-      let intervalId = setInterval(() => {
-        if (Number(seconds) > 1) {
+      if (seconds > 0) {
+        const timer = setTimeout(() => {
           setSeconds(seconds - 1);
-        } else if (Number(minutes) === 0 && Number(seconds) <= 1) {
-          console.log(seconds);
-          if (durationTime === "Work") {
-            alert("work duration is over");
-            setMinutes(breakDuration);
-            setSeconds(0);
-            setDurationTime("Break");
-          } else {
-            alert("break duration is over");
-            setMinutes(newMinutes);
-            setSeconds(0);
-            setDurationTime("Work");
-          }
+        }, 1000);
+        return () => clearTimeout(timer);
+      } else if (seconds === 0 && minutes === 0) {
+        if (durationTime === "Work") {
+          alert("work duration is over");
+          setMinutes(breakDuration);
+          // setSeconds(0);
+          setDurationTime("Break");
         } else {
-          setMinutes(minutes - 1);
-          setSeconds(59);
+          alert("break duration is over");
+          setMinutes(newMinutes);
+          // setSeconds(0);
+          setDurationTime("Work");
         }
-      }, 1000);
-      return () => clearInterval(intervalId);
+      } else {
+        setMinutes(minutes - 1);
+        setSeconds(59);
+      }
     }
   });
 
